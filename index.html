@@ -4,7 +4,6 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>luxuryshopvda</title>
-  <link rel="icon" href="https://dummyimage.com/64x64/d4af37/0b0b0b&text=LS" type="image/png">
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;500;700&display=swap" rel="stylesheet">
   <style>
     :root{
@@ -12,104 +11,117 @@
       --gold:#d4af37;
       --muted:#8b8b8b;
       --card-bg:rgba(255,255,255,0.03);
-      --glass:rgba(255,255,255,0.02);
     }
     *{box-sizing:border-box}
-    body{margin:0;font-family:Montserrat,system-ui,Arial;background:var(--bg);color:#fff;min-height:100vh}
-    header{display:flex;align-items:center;justify-content:space-between;padding:16px 20px;border-bottom:1px solid rgba(255,255,255,0.03);backdrop-filter:blur(4px)}
-    .brand{display:flex;align-items:center;gap:12px}
-    .logo{width:48px;height:48px;border-radius:8px;background:linear-gradient(135deg,var(--gold),#b5892b);display:flex;align-items:center;justify-content:center;font-family:Playfair Display;font-weight:700;color:#0b0b0b;text-transform:lowercase}
-    .brand h1{font-family:Playfair Display;margin:0;font-size:18px;letter-spacing:1px;text-transform:lowercase}
+    body{margin:0;font-family:Montserrat,Arial;background:var(--bg);color:#fff;min-height:100vh}
+    header{display:flex;align-items:center;justify-content:space-between;padding:16px 20px;border-bottom:1px solid rgba(255,255,255,0.05)}
+    .brand{display:flex;align-items:center;gap:10px}
+    .logo{width:42px;height:42px;border-radius:8px;background:linear-gradient(135deg,var(--gold),#b5892b);display:flex;align-items:center;justify-content:center;font-family:Playfair Display;font-weight:700;color:var(--bg)}
+    .brand h1{font-family:Playfair Display;font-size:18px;margin:0}
     nav{display:flex;gap:12px}
     nav a{color:var(--muted);text-decoration:none;padding:8px 10px;border-radius:8px}
-    nav a.active, nav a:hover{color:var(--bg);background:var(--gold)}
+    nav a.active,nav a:hover{background:var(--gold);color:var(--bg)}
     main{padding:20px;max-width:1100px;margin:0 auto}
-    .hero{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:20px}
-    .hero .intro{max-width:720px}
-    .intro h2{font-family:Playfair Display;font-size:36px;margin:0 0 6px;color:var(--gold);text-transform:lowercase}
-    .intro p{color:var(--muted);margin:0 0 12px}
-    .controls{display:flex;gap:10px;align-items:center}
-    .btn{background:var(--glass);border:1px solid rgba(255,255,255,0.03);padding:10px 12px;border-radius:10px;color:var(--muted);cursor:pointer}
-    .search{padding:10px 12px;border-radius:10px;border:1px solid rgba(255,255,255,0.03);background:transparent;color:#fff;min-width:180px}
     .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:14px}
-    .card{background:var(--card-bg);padding:12px;border-radius:10px;border:1px solid rgba(255,255,255,0.03);display:flex;flex-direction:column;gap:8px;min-height:220px}
-    .thumb{height:120px;border-radius:8px;background:linear-gradient(180deg,rgba(255,255,255,0.03),rgba(255,255,255,0.01));display:flex;align-items:center;justify-content:center;color:var(--muted);font-weight:600;overflow:hidden}
+    .card{background:var(--card-bg);padding:12px;border-radius:10px;border:1px solid rgba(255,255,255,0.03);display:flex;flex-direction:column;gap:8px}
+    .thumb{height:120px;border-radius:8px;overflow:hidden}
     .thumb img{width:100%;height:100%;object-fit:cover}
-    .product-name{font-weight:600}
-    .price{margin-top:auto;font-weight:700;color:var(--gold);font-size:16px}
-    footer{padding:18px 20px;border-top:1px solid rgba(255,255,255,0.03);margin-top:28px;color:var(--muted);display:flex;justify-content:space-between;align-items:center}
-    @media(max-width:700px){
-      .hero{flex-direction:column;align-items:flex-start}
-      .intro h2{font-size:26px}
-      header{padding:12px}
-    }
-    .hamburger{display:none;flex-direction:column;gap:4px;width:36px;cursor:pointer}
-    .hamburger span{height:3px;background:#fff;border-radius:2px}
-    @media(max-width:800px){nav{display:none}.hamburger{display:flex}}
-    .mobile-nav{display:none;background:#070707;padding:12px;border-top:1px solid rgba(255,255,255,0.03)}
-    .mobile-nav a{display:block;padding:8px 0;color:var(--muted);text-decoration:none}
-    .mobile-nav a.active{color:var(--gold)}
-    a.inline-link{color:var(--gold);text-decoration:underline}
+    .price{color:var(--gold);font-weight:700;margin-top:auto}
+    footer{padding:18px 20px;border-top:1px solid rgba(255,255,255,0.05);color:var(--muted);text-align:center;margin-top:30px}
   </style>
 </head>
 <body>
   <header>
     <div class="brand">
       <div class="logo">ls</div>
-      <div>
-        <h1>luxuryshopvda</h1>
-        <div style="font-size:12px;color:var(--muted)">rivenditore - selezione premium</div>
-      </div>
+      <h1>luxuryshopvda</h1>
     </div>
     <nav>
       <a href="#" data-page="home" class="active">Home</a>
       <a href="#" data-page="scarpe">Scarpe</a>
       <a href="#" data-page="giacche">Giacche</a>
       <a href="#" data-page="accessori">Accessori</a>
-      <a href="#" data-page="contatti">Contatti</a>
     </nav>
-    <div class="hamburger" id="hamburger" aria-label="Toggle menu">
-      <span></span><span></span><span></span>
-    </div>
   </header>
-
-  <div class="mobile-nav" id="mobileNav">
-    <a href="#" data-page="home" class="active">Home</a>
-    <a href="#" data-page="scarpe">Scarpe</a>
-    <a href="#" data-page="giacche">Giacche</a>
-    <a href="#" data-page="accessori">Accessori</a>
-    <a href="#" data-page="contatti">Contatti</a>
-  </div>
 
   <main>
     <section id="page-home" class="page">
-      <div class="hero">
-        <div class="intro">
-          <h2>luxuryshopvda — selezione esclusiva</h2>
-          <p>Benvenuto nella vetrina di luxuryshopvda. Scopri le categorie, filtra per prezzo e visualizza i nostri prodotti premium.</p>
-          <div class="controls">
-            <input id="search" class="search" placeholder="Cerca prodotto... (es. Dior)" />
-            <select id="sort" class="btn">
-              <option value="default">Ordina: predefinito</option>
-              <option value="price-asc">Prezzo: crescente</option>
-              <option value="price-desc">Prezzo: decrescente</option>
-              <option value="name-asc">Nome: A → Z</option>
-            </select>
-          </div>
-        </div>
-        <div style="min-width:220px;text-align:right">
-          <div style="background:linear-gradient(135deg,var(--gold),#b5892b);padding:14px;border-radius:10px;color:var(--bg);font-weight:700">Nuove aggiunte finalizzate</div>
-        </div>
-      </div>
-      <div id="listing" class="grid"></div>
+      <h2 style="color:var(--gold);font-family:Playfair Display;">Benvenuto su luxuryshopvda</h2>
+      <p style="color:var(--muted)">Scopri le nostre categorie e i prodotti esclusivi.</p>
+      <div class="grid" id="listing"></div>
     </section>
 
     <section id="page-scarpe" class="page" style="display:none">
-      <h2 style="font-family:Playfair Display;color:var(--gold);text-transform:none">Scarpe</h2>
+      <h2 style="color:var(--gold);font-family:Playfair Display;">Scarpe</h2>
       <div class="grid" id="scarpe-grid"></div>
     </section>
 
     <section id="page-giacche" class="page" style="display:none">
+      <h2 style="color:var(--gold);font-family:Playfair Display;">Giacche</h2>
+      <div class="grid" id="giacche-grid"></div>
+    </section>
+
+    <section id="page-accessori" class="page" style="display:none">
+      <h2 style="color:var(--gold);font-family:Playfair Display;">Accessori</h2>
+      <div class="grid" id="accessori-grid"></div>
+    </section>
+  </main>
+
+  <footer>© luxuryshopvda — Tutti i diritti riservati</footer>
+
+  <script>
+    const products = [
+      // Scarpe
+      {id:1,name:'louis vuitton trainer',price:80,category:'scarpe',img:'https://images.stockx.com/360/Louis-Vuitton-LV-Trainer-White-Black-White/Lv2/img01.jpg?w=480&q=60'},
+      {id:2,name:'dior b22',price:80,category:'scarpe',img:'https://outletdelcalcio.eu/cdn/shop/files/WhatsAppImage2024-05-11at15.06.49.jpg?v=1715453725'},
+      {id:3,name:'nike jordan',price:75,category:'scarpe',img:'https://tommaseoclothing.com/cdn/shop/files/air-jordan-4-bred-reimagined-140409.jpg?v=1729956995'},
+
+      // Giacche
+      {id:4,name:'giacca north face',price:60,category:'giacche',img:'https://images.thenorthface.com/is/image/TheNorthFaceEU/tnf-black-mens-1996-retro-nuptse-jacket-nf0a3c8d-jpg?$PDP-Main-Desktop$'},
+      {id:5,name:'giacca trapstar',price:80,category:'giacche',img:'https://cdn.shopify.com/s/files/1/0564/4242/8254/products/trapstar-jacket_720x.jpg?v=1669134523'},
+      {id:6,name:'smanicato canada goose',price:55,category:'giacche',img:'https://www.canadagoose.com/on/demandware.static/-/Sites-cg-master-catalog/default/dwe5a5df1a/images/hi-res/4151M_61.jpg'},
+      {id:7,name:'smanicato trapstar',price:60,category:'giacche',img:'https://trapstar.com/cdn/shop/files/vest_720x.jpg?v=1687094987'},
+
+      // Accessori
+      {id:8,name:'cinture louis vuitton',price:25,category:'accessori',img:'https://it.louisvuitton.com/images/is/image/lv/1/PP_VP_L/louis-vuitton-cintura-lv-pyramide-40-mm--M0422Q_PM1_Closeup%20view.jpg'},
+      {id:9,name:'airpods',price:40,category:'accessori',img:'https://store.storeimages.cdn-apple.com/8756/as-images.apple.com/is/MX2E3?wid=572&hei=572&fmt=jpeg&qlt=95'}
+    ];
+
+    function renderProducts(category){
+      const container = document.getElementById(category === 'home' ? 'listing' : category + '-grid');
+      container.innerHTML = '';
+      const list = category === 'home' ? products : products.filter(p => p.category === category);
+      list.forEach(p=>{
+        const card = document.createElement('div');
+        card.className='card';
+        card.innerHTML=`
+          <div class="thumb"><img src="${p.img}" alt="${p.name}"></div>
+          <div>${p.name}</div>
+          <div class="price">€${p.price}</div>`;
+        container.appendChild(card);
+      });
+    }
+
+    function showPage(page){
+      document.querySelectorAll('.page').forEach(p=>p.style.display='none');
+      document.getElementById('page-'+page).style.display='block';
+      document.querySelectorAll('nav a').forEach(a=>a.classList.remove('active'));
+      document.querySelector('nav a[data-page="'+page+'"]').classList.add('active');
+      renderProducts(page);
+    }
+
+    document.querySelectorAll('nav a').forEach(a=>{
+      a.addEventListener('click',e=>{
+        e.preventDefault();
+        showPage(a.dataset.page);
+      });
+    });
+
+    // inizializza la home
+    renderProducts('home');
+  </script>
+</body>
+</html>    <section id="page-giacche" class="page" style="display:none">
       <h2 style="font-family:Playfair Display;color:var(--gold);text-transform:none">Giacche</h2>
       <div class="grid" id="giacche-grid"></div>
     </section>
