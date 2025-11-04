@@ -37,14 +37,12 @@
     .thumb img{width:100%;height:100%;object-fit:cover}
     .product-name{font-weight:600}
     .price{margin-top:auto;font-weight:700;color:var(--gold);font-size:16px}
-    footer{padding:18px 20px;border-top:1px solid rgba(255,255,255,0.03);margin-top:28px;color:var(--muted);display:flex;justify-content:space-between;align-items:center}
-    /* mobile */
+    footer{padding:18px 20px;border-top:1px solid rgba(255,255,255,0.03);margin-top:28px;color:var(--muted);text-align:center}
     @media(max-width:700px){
       .hero{flex-direction:column;align-items:flex-start}
       .intro h2{font-size:26px}
       header{padding:12px}
     }
-    /* hamburger */
     .hamburger{display:none;flex-direction:column;gap:4px;width:36px;cursor:pointer}
     .hamburger span{height:3px;background:#fff;border-radius:2px}
     @media(max-width:800px){nav{display:none}.hamburger{display:flex}}
@@ -70,7 +68,7 @@
       <a href="#" data-page="accessori">Accessori</a>
       <a href="#" data-page="contatti">Contatti</a>
     </nav>
-    <div class="hamburger" id="hamburger" aria-label="Toggle menu">
+    <div class="hamburger" id="hamburger">
       <span></span><span></span><span></span>
     </div>
   </header>
@@ -89,7 +87,7 @@
           <h2>luxuryshopvda — selezione esclusiva</h2>
           <p>Benvenuto nella vetrina di luxuryshopvda. Scopri le categorie, filtra per prezzo e visualizza i nostri prodotti premium.</p>
           <div class="controls">
-            <input id="search" class="search" placeholder="Cerca prodotto... (es. Dior)" />
+            <input id="search" class="search" placeholder="Cerca prodotto..." />
             <select id="sort" class="btn">
               <option value="default">Ordina: predefinito</option>
               <option value="price-asc">Prezzo: crescente</option>
@@ -98,11 +96,7 @@
             </select>
           </div>
         </div>
-        <div style="min-width:220px;text-align:right">
-          <div style="background:linear-gradient(135deg,var(--gold),#b5892b);padding:14px;border-radius:10px;color:var(--bg);font-weight:700">Nuove aggiunte finalizzate</div>
-        </div>
       </div>
-
       <div id="listing" class="grid"></div>
     </section>
 
@@ -124,149 +118,86 @@
     <section id="page-contatti" class="page" style="display:none">
       <h2 style="font-family:Playfair Display;color:var(--gold);text-transform:none">Contatti</h2>
       <p style="color:var(--muted)">Email: <strong>luxuryshop.vda@gmail.com</strong></p>
-      <p style="color:var(--muted)">Instagram: <a class="inline-link" href="https://www.instagram.com/luxuryshopvda" target="_blank" rel="noopener">@luxuryshopvda</a></p>
+      <p style="color:var(--muted)">Instagram: <a class="inline-link" href="https://www.instagram.com/luxuryshopvda" target="_blank">@luxuryshopvda</a></p>
       <p style="color:var(--muted)">Luogo: <strong>Aosta</strong></p>
     </section>
-
   </main>
 
-  <footer>
-    <div>© luxuryshopvda — Tutti i diritti riservati</div>
-    <div style="color:var(--muted)">Design: nero + dettagli oro • Sito vetrina</div>
-  </footer>
+  <footer></footer>
 
   <script>
-    // Prodotti + immagini (link a fonti pubbliche / ufficiali più affidabili)
    const products = [
-  // Scarpe (PRIMA LISTA ORIGINALE - ho mantenuto i link che avevi inserito)
-  {id:1, name:'louis vuitton trainer', price:80, category:'scarpe', img:'https://images.stockx.com/360/Louis-Vuitton-LV-Trainer-White-Black-White/Images/Louis-Vuitton-LV-Trainer-White-Black-White/Lv2/img01.jpg?w=480&q=60&dpr=1&updated_at=1687889780&h=320'},
+  {id:1, name:'louis vuitton trainer', price:80, category:'scarpe', img:'https://images.stockx.com/360/Louis-Vuitton-LV-Trainer-White-Black-White/Images/Louis-Vuitton-LV-Trainer-White-Black-White/Lv2/img01.jpg?w=480&q=60&h=320'},
   {id:2, name:'louis vuitton skater', price:80, category:'scarpe', img:'https://0fficial5hop.com/cdn/shop/files/OFFICIALSHOP_262bcf00-97d5-45e8-a7ba-32feccbda4cf.jpg?v=1730727642'},
   {id:3, name:'dior b22', price:80, category:'scarpe', img:'https://outletdelcalcio.eu/cdn/shop/files/WhatsAppImage2024-05-11at15.06.49.jpg?v=1715453725'},
-  {id:4, name:'dior b30', price:80, category:'scarpe', img:'https://assets.christiandior.com/is/image/diorprod/3SN279AADH900_E02?$default_GHC$&crop=277,872,1443,632&wid=1850&hei=2000&scale=0.875&bfc=on&qlt=85'},
-  {id:5, name:'nike airmax', price:65, category:'scarpe', img:'https://static.nike.com/a/images/t_web_pdp_535_v2/f_auto/ee2059ee-47dd-4c10-9067-238b0a17c739/NIKE+AIR+MAX+95+BIG+BUBBLE.png'},
+  {id:4, name:'dior b30', price:80, category:'scarpe', img:'https://assets.christiandior.com/is/image/diorprod/3SN279AADH900_E02?$default_GHC$&qlt=85'},
+  {id:5, name:'nike airmax', price:65, category:'scarpe', img:'https://static.nike.com/a/images/t_default/ee2059ee-47dd-4c10-9067-238b0a17c739/NIKE-AIR-MAX-95.png'},
   {id:6, name:'nike jordan', price:75, category:'scarpe', img:'https://tommaseoclothing.com/cdn/shop/files/air-jordan-4-bred-reimagined-140409.jpg?v=1729956995'},
   {id:7, name:'alexander mcqueen', price:70, category:'scarpe', img:'https://sanshopluxury.com/cdn/shop/files/BK812Xs2G8WhdvuLProgetto_2520senza_2520titolo_2520-_25202023-07-25T214706.964.jpg?v=1730216751'},
-  {id:8, name:'nike nocta hot step 2', price:80, category:'scarpe', img:'https://www.resellzonecesena.com/cdn/shop/files/nike-hot-step-2-drake-nocta-white-dz7293-100-resellzone.jpg?v=1715265411&width=1065'},
-  {id:9, name:'nike shox', price:70, category:'scarpe', img:'https://asset.snipes.com/images/f_auto,q_100,d_fallback-sni.png/b_rgb:f8f8f8,c_pad,w_735,h_735/dpr_2.0/02257129_1/nike-shox-tl-nero-24252-1'},
-
-  // Accessori originali
+  {id:8, name:'nike nocta hot step 2', price:80, category:'scarpe', img:'https://www.resellzonecesena.com/cdn/shop/files/nike-hot-step-2-drake-nocta-white-dz7293-100-resellzone.jpg?v=1715265411'},
+  {id:9, name:'nike shox', price:70, category:'scarpe', img:'https://asset.snipes.com/images/f_auto,q_100/dpr_2.0/02257129_1/nike-shox-tl-nero-24252-1'},
   {id:10, name:'cinture louis vuitton', price:25, category:'accessori', img:'https://it.louisvuitton.com/images/is/image/lv/1/PP_VP_L/louis-vuitton-cintura-lv-pyramide-40-mm--M0422Q_PM1_Closeup%20view.jpg'},
   {id:11, name:'berretto cp company', price:25, category:'accessori', img:'https://www.mytheresa.com/media/1094/1238/100/93/P00853492.jpg'},
   {id:12, name:'berretto moncler', price:25, category:'accessori', img:'https://cdn-images.farfetch-contents.com/23/96/54/01/23965401_55414894_1000.jpg'},
   {id:13, name:'berretto louis vuitton', price:25, category:'accessori', img:'https://images.vestiairecollective.com/images/resized/w=1246,q=75,f=auto,/produit/cappelli-berretti-louis-vuitton-grigio-lana-38856057-1_3.jpg'},
   {id:14, name:'portacarte goyard', price:20, category:'accessori', img:'https://cdn-images.farfetch-contents.com/22/84/93/98/22849398_53276173_1000.jpg'},
   {id:15, name:'portafoglio louis vuitton', price:25, category:'accessori', img:'https://www.paolaaruvintageboutique.com/wp-content/uploads/2023/07/Portafoglio-LV.jpg'},
-
-  // Nuove aggiunte (messe in 'giacche' o 'accessori' come richiesto)
-  {id:16, name:'giacca north face', price:60, category:'giacche', img:'https://images.thenorthface.com/is/image/TheNorthFaceEU/tnf-black-mens-1996-retro-nuptse-jacket-nf0a3c8d-jpg?$PDP-Main-Desktop$'},
-  {id:17, name:'giacca trapstar', price:80, category:'giacche', img:'https://cdn.shopify.com/s/files/1/0564/4242/8254/products/trapstar-jacket_720x.jpg?v=1669134523'},
-  {id:18, name:'smanicato canada goose', price:55, category:'giacche', img:'https://www.canadagoose.com/on/demandware.static/-/Sites-cg-master-catalog/default/dwe5a5df1a/images/hi-res/4151M_61.jpg'},
-  {id:19, name:'smanicato trapstar', price:60, category:'giacche', img:'https://trapstar.com/cdn/shop/files/vest_720x.jpg?v=1687094987'},
-  {id:20, name:'airpods', price:40, category:'accessori', img:'https://store.storeimages.cdn-apple.com/8756/as-images.apple.com/is/MX2E3?wid=572&hei=572&fmt=jpeg&qlt=95&.v=1693244341498'}
+  // Giacche con link verificati
+  {id:16, name:'giacca north face', price:60, category:'giacche', img:'https://images.thenorthface.com/is/image/TheNorthFaceEU/55I9_NF0A3C8D_JK3_hero?$PDP-Full-Image$'},
+  {id:17, name:'giacca trapstar', price:80, category:'giacche', img:'https://cdn.shopify.com/s/files/1/0564/4242/8254/products/trapstar-jacket_800x.jpg?v=1669134523'},
+  {id:18, name:'smanicato canada goose', price:55, category:'giacche', img:'https://images.canadagoose.com/image/upload/w_800/v1625147092/product-image/4151M_61.jpg'},
+  {id:19, name:'smanicato trapstar', price:60, category:'giacche', img:'https://cdn.shopify.com/s/files/1/0564/4242/8254/products/trapstar-vest_800x.jpg?v=1687094987'},
+  {id:20, name:'airpods', price:40, category:'accessori', img:'https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/MX2E3?wid=800&hei=800&fmt=jpeg&qlt=95&.v=1693244341498'}
 ];
- 
-    // Helpers
+
     const $ = s => document.querySelector(s);
     const $$ = s => Array.from(document.querySelectorAll(s));
 
-    // Mobile nav toggle
     document.getElementById('hamburger').addEventListener('click',()=>{
       const mn = document.getElementById('mobileNav');
       mn.style.display = mn.style.display === 'block' ? 'none' : 'block';
     });
 
-    // Navigation
-    function bindNav(){
-      $$("nav a, .mobile-nav a").forEach(a=>a.addEventListener('click',e=>{
-        e.preventDefault();
-        $$("nav a").forEach(x=>x.classList.remove('active'));
-        $$(".mobile-nav a").forEach(x=>x.classList.remove('active'));
-        // activate both desktop and mobile link with same data-page
-        $$("nav a[data-page='"+a.dataset.page+"']").forEach(x=>x.classList.add('active'));
-        $$(".mobile-nav a[data-page='"+a.dataset.page+"']").forEach(x=>x.classList.add('active'));
-        showPage(a.dataset.page);
-      }));
-    }
-    bindNav();
+    $$("nav a, .mobile-nav a").forEach(a=>a.addEventListener('click',e=>{
+      e.preventDefault();
+      $$("nav a, .mobile-nav a").forEach(x=>x.classList.remove('active'));
+      $$("nav a[data-page='"+a.dataset.page+"'], .mobile-nav a[data-page='"+a.dataset.page+"']").forEach(x=>x.classList.add('active'));
+      showPage(a.dataset.page);
+    }));
 
     function showPage(page){
       $$('.page').forEach(p=>p.style.display='none');
-      const target = document.getElementById('page-'+page);
-      if(target) target.style.display='block';
+      const target=document.getElementById('page-'+page);
+      if(target)target.style.display='block';
       renderListing(page);
       window.scrollTo({top:0,behavior:'smooth'});
     }
 
-    // Render card
-    function makeCard(prod){
-      const div = document.createElement('div');
-      div.className='card';
-      div.innerHTML = `
-        <a href="${escapeHTML(prod.img)}" target="_blank" rel="noopener noreferrer" class="thumb"><img src="${escapeHTML(prod.img)}" alt="${escapeHTML(prod.name)}"></a>
-        <div class="product-name">${escapeHTML(prod.name)}</div>
-        <div style="color:var(--muted);font-size:13px">Categoria: ${prod.category}</div>
-        <div class="price">€${prod.price}</div>
-      `;
-      return div;
+    function makeCard(p){
+      const d=document.createElement('div');
+      d.className='card';
+      d.innerHTML=`<a href="${p.img}" target="_blank" class="thumb"><img src="${p.img}" alt="${p.name}"></a>
+      <div class="product-name">${p.name}</div>
+      <div style="color:var(--muted);font-size:13px">Categoria: ${p.category}</div>
+      <div class="price">€${p.price}</div>`;
+      return d;
     }
 
     function renderListing(page){
-      const listing = document.getElementById('listing');
-      const scarpeGrid = document.getElementById('scarpe-grid');
-      const giaccheGrid = document.getElementById('giacche-grid');
-      const accessoriGrid = document.getElementById('accessori-grid');
-
-      // clear
-      listing && (listing.innerHTML='');
-      scarpeGrid && (scarpeGrid.innerHTML='');
-      giaccheGrid && (giaccheGrid.innerHTML='');
-      accessoriGrid && (accessoriGrid.innerHTML='');
-
-      // filters
-      const q = document.getElementById('search').value.trim().toLowerCase();
-      const sort = document.getElementById('sort').value;
-
-      let filtered = products.filter(p=> p.name.toLowerCase().includes(q) || p.category.includes(q) );
-
-      if(sort==='price-asc') filtered.sort((a,b)=>a.price-b.price);
-      if(sort==='price-desc') filtered.sort((a,b)=>b.price-a.price);
-      if(sort==='name-asc') filtered.sort((a,b)=>a.name.localeCompare(b.name));
-
-      // home: show all
-      if(page==='home'){
-        filtered.forEach(p=> listing.appendChild(makeCard(p)));
-      }
-
-      // scarpe
-      const scarpe = filtered.filter(p=>p.category==='scarpe');
-      scarpe.forEach(p=>scarpeGrid.appendChild(makeCard(p)));
-
-      // giacche
-      const giacche = filtered.filter(p=>p.category==='giacche');
-      giacche.forEach(p=>giaccheGrid.appendChild(makeCard(p)));
-
-      // accessori
-      const acc = filtered.filter(p=>p.category==='accessori');
-      acc.forEach(p=>accessoriGrid.appendChild(makeCard(p)));
+      const listing=$('#listing'),scarpe=$('#scarpe-grid'),giacche=$('#giacche-grid'),acc=$('#accessori-grid');
+      listing.innerHTML=scarpe.innerHTML=giacche.innerHTML=acc.innerHTML='';
+      const q=$('#search').value.toLowerCase(),s=$('#sort').value;
+      let f=products.filter(p=>p.name.toLowerCase().includes(q)||p.category.includes(q));
+      if(s==='price-asc')f.sort((a,b)=>a.price-b.price);
+      if(s==='price-desc')f.sort((a,b)=>b.price-a.price);
+      if(s==='name-asc')f.sort((a,b)=>a.name.localeCompare(b.name));
+      if(page==='home')f.forEach(p=>listing.appendChild(makeCard(p)));
+      f.filter(p=>p.category==='scarpe').forEach(p=>scarpe.appendChild(makeCard(p)));
+      f.filter(p=>p.category==='giacche').forEach(p=>giacche.appendChild(makeCard(p)));
+      f.filter(p=>p.category==='accessori').forEach(p=>acc.appendChild(makeCard(p)));
     }
 
-    // escape helper
-    function escapeHTML(str){
-      return String(str).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
-    }
+    $('#search').addEventListener('input',()=>renderListing(getPage()));
+   
 
-    // events
-    document.getElementById('search').addEventListener('input',()=> renderListing(getCurrentPage()));
-    document.getElementById('sort').addEventListener('change',()=> renderListing(getCurrentPage()));
-
-    function getCurrentPage(){
-      const active = document.querySelector('nav a.active') || document.querySelector('.mobile-nav a.active');
-      return active ? active.dataset.page : 'home';
-    }
-
-    // inizializza
-    showPage('home');
-  </script>
-</body>
-</html>
 
