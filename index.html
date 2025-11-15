@@ -25,8 +25,8 @@
     nav a.active, nav a:hover{color:var(--bg);background:var(--gold)}
     main{padding:20px;max-width:1100px;margin:0 auto}
     .hero{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:20px}
-    .hero .intro{max-width:720px}
-    .intro h2{font-family:Playfair Display;font-size:36px;margin:0 0 6px;color:var(--gold);text-transform:lowercase}
+    .intro{max-width:720px}
+    .intro h2{font-family:Playfair Display;font-size:36px;margin:0 0 6px;color:var(--gold)}
     .intro p{color:var(--muted);margin:0 0 12px}
     .controls{display:flex;gap:10px;align-items:center}
     .btn{background:var(--glass);border:1px solid rgba(255,255,255,0.03);padding:10px 12px;border-radius:10px;color:var(--muted);cursor:pointer}
@@ -37,22 +37,11 @@
     .thumb img{width:100%;height:100%;object-fit:cover}
     .product-name{font-weight:600}
     .price{margin-top:auto;font-weight:700;color:var(--gold);font-size:16px}
-    footer{padding:18px 20px;border-top:1px solid rgba(255,255,255,0.03);margin-top:28px;color:var(--muted);text-align:center}
-    @media(max-width:700px){
-      .hero{flex-direction:column;align-items:flex-start}
-      .intro h2{font-size:26px}
-      header{padding:12px}
-    }
-    .hamburger{display:none;flex-direction:column;gap:4px;width:36px;cursor:pointer}
-    .hamburger span{height:3px;background:#fff;border-radius:2px}
-    @media(max-width:800px){nav{display:none}.hamburger{display:flex}}
-    .mobile-nav{display:none;background:#070707;padding:12px;border-top:1px solid rgba(255,255,255,0.03)}
-    .mobile-nav a{display:block;padding:8px 0;color:var(--muted);text-decoration:none}
-    .mobile-nav a.active{color:var(--gold)}
-    a.inline-link{color:var(--gold);text-decoration:underline}
+    footer{padding:18px 20px;border-top:1px solid rgba(255,255,255,0.03);margin-top:28px;color:var(--muted);display:flex;justify-content:center}
   </style>
 </head>
 <body>
+
   <header>
     <div class="brand">
       <div class="logo">ls</div>
@@ -64,28 +53,20 @@
     <nav>
       <a href="#" data-page="home" class="active">Home</a>
       <a href="#" data-page="scarpe">Scarpe</a>
-      <a href="#" data-page="giacche">Giacche</a>
       <a href="#" data-page="accessori">Accessori</a>
+      <a href="#" data-page="giacche">Giacche</a>
       <a href="#" data-page="contatti">Contatti</a>
     </nav>
-    <div class="hamburger" id="hamburger">
-      <span></span><span></span><span></span>
-    </div>
   </header>
-  <div class="mobile-nav" id="mobileNav">
-    <a href="#" data-page="home" class="active">Home</a>
-    <a href="#" data-page="scarpe">Scarpe</a>
-    <a href="#" data-page="giacche">Giacche</a>
-    <a href="#" data-page="accessori">Accessori</a>
-    <a href="#" data-page="contatti">Contatti</a>
-  </div>
 
   <main>
+
     <section id="page-home" class="page">
       <div class="hero">
         <div class="intro">
           <h2>luxuryshopvda — selezione esclusiva</h2>
-          <p>Benvenuto nella vetrina di luxuryshopvda. Scopri le categorie, filtra per prezzo e visualizza i nostri prodotti premium.</p>
+          <p>Benvenuto nella vetrina di luxuryshopvda. Scopri i nostri prodotti premium.</p>
+
           <div class="controls">
             <input id="search" class="search" placeholder="Cerca prodotto..." />
             <select id="sort" class="btn">
@@ -97,19 +78,133 @@
           </div>
         </div>
       </div>
+
       <div id="listing" class="grid"></div>
     </section>
 
     <section id="page-scarpe" class="page" style="display:none">
-      <h2 style="font-family:Playfair Display;color:var(--gold);text-transform:none">Scarpe</h2>
+      <h2 style="font-family:Playfair Display;color:var(--gold)">Scarpe</h2>
       <div class="grid" id="scarpe-grid"></div>
     </section>
 
+    <section id="page-accessori" class="page" style="display:none">
+      <h2 style="font-family:Playfair Display;color:var(--gold)">Accessori</h2>
+      <div class="grid" id="accessori-grid"></div>
+    </section>
+
     <section id="page-giacche" class="page" style="display:none">
-      <h2 style="font-family:Playfair Display;color:var(--gold);text-transform:none">Giacche</h2>
+      <h2 style="font-family:Playfair Display;color:var(--gold)">Giacche</h2>
       <div class="grid" id="giacche-grid"></div>
     </section>
 
+    <section id="page-contatti" class="page" style="display:none">
+      <h2 style="font-family:Playfair Display;color:var(--gold)">Contatti</h2>
+      <p style="color:var(--muted)">Email: <strong>luxuryshop.vda@gmail.com</strong></p>
+      <p style="color:var(--muted)">Instagram: @luxuryshopvda</p>
+      <p style="color:var(--muted)">Luogo: Aosta</p>
+    </section>
+
+  </main>
+
+  <footer>luxuryshopvda</footer>
+
+  <script>
+    const products = [
+
+      /* --- I TUOI PRODOTTI ORIGINALI (NON TOCCATI) --- */
+      {id:1, name:'louis vuitton trainer', price:80, category:'scarpe', img:'https://images.stockx.com/360/Louis-Vuitton-LV-Trainer-White-Black-White/Images/Louis-Vuitton-LV-Trainer-White-Black-White/Lv2/img01.jpg'},
+      {id:2, name:'louis vuitton skater', price:80, category:'scarpe', img:'https://0fficial5hop.com/cdn/shop/files/OFFICIALSHOP_262bcf00-97d5-45e8-a7ba-32feccbda4cf.jpg'},
+      {id:3, name:'dior b22', price:80, category:'scarpe', img:'https://outletdelcalcio.eu/cdn/shop/files/WhatsAppImage2024-05-11at15.06.49.jpg'},
+      {id:4, name:'dior b30', price:80, category:'scarpe', img:'https://assets.christiandior.com/is/image/diorprod/3SN279AADH900_E02'},
+      {id:5, name:'nike airmax', price:65, category:'scarpe', img:'https://static.nike.com/a/images/t_web_pdp_535_v2/f_auto/ee2059ee-47dd-4c10-9067-238b0a17c739/NIKE+AIR+MAX+95+BIG+BUBBLE.png'},
+      {id:6, name:'nike jordan', price:75, category:'scarpe', img:'https://tommaseoclothing.com/cdn/shop/files/air-jordan-4-bred-reimagined-140409.jpg'},
+      {id:7, name:'alexander mcqueen', price:70, category:'scarpe', img:'https://sanshopluxury.com/cdn/shop/files/BK812Xs2G8WhdvuLProgetto_2520senza_2520titolo_2520-_25202023-07-25T214706.964.jpg'},
+      {id:8, name:'nike nocta hot step 2', price:80, category:'scarpe', img:'https://www.resellzonecesena.com/cdn/shop/files/nike-hot-step-2-drake-nocta-white-dz7293-100-resellzone.jpg'},
+      {id:9, name:'nike shox', price:70, category:'scarpe', img:'https://asset.snipes.com/images/f_auto,q_100/dpr_2.0/02257129_1/nike-shox-tl-nero-24252-1'},
+
+      {id:10, name:'cinture louis vuitton', price:25, category:'accessori', img:'https://it.louisvuitton.com/images/is/image/lv/1/PP_VP_L/louis-vuitton-cintura-lv-pyramide-40-mm--M0422Q_PM1_Closeup%20view.jpg'},
+      {id:11, name:'berretto cp company', price:25, category:'accessori', img:'https://www.mytheresa.com/media/1094/1238/100/93/P00853492.jpg'},
+      {id:12, name:'berretto moncler', price:25, category:'accessori', img:'https://cdn-images.farfetch-contents.com/23965401_55414894_1000.jpg'},
+      {id:13, name:'berretto louis vuitton', price:25, category:'accessori', img:'https://images.vestiairecollective.com/products/louis-vuitton-hat-38856057-1.jpg'},
+      {id:14, name:'portacarte goyard', price:20, category:'accessori', img:'https://cdn-images.farfetch-contents.com/22849398_53276173_1000.jpg'},
+      {id:15, name:'portafoglio louis vuitton', price:25, category:'accessori', img:'https://www.paolaaruvintageboutique.com/wp-content/uploads/2023/07/Portafoglio-LV.jpg'},
+
+      /* --- NUOVI PRODOTTI (IMMAGINI STOCK) --- */
+      {id:100, name:'smanicato canada goose', price:55, category:'giacche', img:'https://images.unsplash.com/photo-1602810316075-fbbf02f022a7'},
+      {id:101, name:'smanicato trapstar', price:65, category:'giacche', img:'https://images.unsplash.com/photo-1591088364301-3df21855d517'},
+      {id:102, name:'giacca north face', price:60, category:'giacche', img:'https://images.unsplash.com/photo-1585730285725-233bc14e595b'},
+      {id:103, name:'giacca ralph lauren', price:75, category:'giacche', img:'https://images.unsplash.com/photo-1582552964841-827ff6d4f1e5'},
+      {id:104, name:'giacca trapstar', price:75, category:'giacche', img:'https://images.unsplash.com/photo-1618354691373-a1df8bd2d96d'}
+
+    ];
+
+    const $ = s => document.querySelector(s);
+    const $$ = s => Array.from(document.querySelectorAll(s));
+
+    function showPage(page){
+      $$('.page').forEach(p=> p.style.display='none');
+      $('#page-'+page).style.display='block';
+      renderListing(page);
+    }
+
+    $$("nav a").forEach(a=> a.onclick=(e)=>{
+      e.preventDefault();
+      $$("nav a").forEach(x=>x.classList.remove('active'));
+      a.classList.add('active');
+      showPage(a.dataset.page);
+    });
+
+    function makeCard(p){
+      const el = document.createElement('div');
+      el.className='card';
+      el.innerHTML=`
+        <div class="thumb"><img src="${p.img}" /></div>
+        <div class="product-name">${p.name}</div>
+        <div style="color:var(--muted);font-size:13px">Categoria: ${p.category}</div>
+        <div class="price">€${p.price}</div>`;
+      return el;
+    }
+
+    function renderListing(page){
+      const q = $('#search').value.toLowerCase();
+      const sort = $('#sort').value;
+
+      let list = products.filter(p =>
+        p.name.toLowerCase().includes(q) ||
+        p.category.includes(q)
+      );
+
+      if(sort==='price-asc') list.sort((a,b)=>a.price-b.price);
+      if(sort==='price-desc') list.sort((a,b)=>b.price-a.price);
+      if(sort==='name-asc') list.sort((a,b)=>a.name.localeCompare(b.name));
+
+      const grids = {
+        home: $('#listing'),
+        scarpe: $('#scarpe-grid'),
+        accessori: $('#accessori-grid'),
+        giacche: $('#giacche-grid')
+      };
+
+      Object.values(grids).forEach(g=> g.innerHTML='');
+
+      if(page==='home') list.forEach(p=> grids.home.appendChild(makeCard(p)));
+      list.filter(p=>p.category==='scarpe').forEach(p=>grids.scarpe.appendChild(makeCard(p)));
+      list.filter(p=>p.category==='accessori').forEach(p=>grids.accessori.appendChild(makeCard(p)));
+      list.filter(p=>p.category==='giacche').forEach(p=>grids.giacche.appendChild(makeCard(p)));
+    }
+
+    $('#search').oninput=()=>renderListing(getPage());
+    $('#sort').onchange=()=>renderListing(getPage());
+
+    function getPage(){
+      return document.querySelector("nav a.active").dataset.page;
+    }
+
+    showPage('home');
+  </script>
+
+</body>
+</html>
     <section id="page-accessori" class="page" style="display:none">
       <h2 style="font-family:Playfair Display;color:var(--gold);text-transform:none">Accessori</h2>
       <div class="grid" id="accessori-grid"></div>
