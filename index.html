@@ -16,7 +16,7 @@
     }
     *{box-sizing:border-box}
     body{margin:0;font-family:Montserrat,system-ui,Arial;background:var(--bg);color:#fff;min-height:100vh}
-    header{display:flex;align-items:center;justify-content:space-between;padding:16px 20px;border-bottom:1px solid rgba(255,255,255,0.03);backdrop-filter:blur(4px)}
+    header{display:flex;align-items:center;justify-content:space-between;padding:16px 20px;border-bottom:1px solid rgba(255,255,255,0.03)}
     .brand{display:flex;align-items:center;gap:12px}
     .logo{width:48px;height:48px;border-radius:8px;background:linear-gradient(135deg,var(--gold),#b5892b);display:flex;align-items:center;justify-content:center;font-family:Playfair Display;font-weight:700;color:#0b0b0b;text-transform:lowercase}
     .brand h1{font-family:Playfair Display;margin:0;font-size:18px;letter-spacing:1px;text-transform:lowercase}
@@ -33,11 +33,11 @@
     .search{padding:10px 12px;border-radius:10px;border:1px solid rgba(255,255,255,0.03);background:transparent;color:#fff;min-width:180px}
     .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:14px}
     .card{background:var(--card-bg);padding:12px;border-radius:10px;border:1px solid rgba(255,255,255,0.03);display:flex;flex-direction:column;gap:8px;min-height:220px}
-    .thumb{height:120px;border-radius:8px;background:linear-gradient(180deg,rgba(255,255,255,0.03),rgba(255,255,255,0.01));display:flex;align-items:center;justify-content:center;color:var(--muted);font-weight:600;overflow:hidden}
+    .thumb{height:120px;border-radius:8px;overflow:hidden;display:flex;align-items:center;justify-content:center;background:var(--glass)}
     .thumb img{width:100%;height:100%;object-fit:cover}
     .product-name{font-weight:600}
     .price{margin-top:auto;font-weight:700;color:var(--gold);font-size:16px}
-    footer{padding:18px 20px;border-top:1px solid rgba(255,255,255,0.03);margin-top:28px;color:var(--muted);display:flex;justify-content:center}
+    footer{padding:18px 20px;border-top:1px solid rgba(255,255,255,0.03);margin-top:28px;color:var(--muted);text-align:center}
   </style>
 </head>
 <body>
@@ -45,10 +45,7 @@
   <header>
     <div class="brand">
       <div class="logo">ls</div>
-      <div>
-        <h1>luxuryshopvda</h1>
-        <div style="font-size:12px;color:var(--muted)">rivenditore - selezione premium</div>
-      </div>
+      <h1>luxuryshopvda</h1>
     </div>
     <nav>
       <a href="#" data-page="home" class="active">Home</a>
@@ -60,13 +57,11 @@
   </header>
 
   <main>
-
     <section id="page-home" class="page">
       <div class="hero">
         <div class="intro">
           <h2>luxuryshopvda — selezione esclusiva</h2>
           <p>Benvenuto nella vetrina di luxuryshopvda. Scopri i nostri prodotti premium.</p>
-
           <div class="controls">
             <input id="search" class="search" placeholder="Cerca prodotto..." />
             <select id="sort" class="btn">
@@ -78,7 +73,6 @@
           </div>
         </div>
       </div>
-
       <div id="listing" class="grid"></div>
     </section>
 
@@ -103,13 +97,110 @@
       <p style="color:var(--muted)">Instagram: @luxuryshopvda</p>
       <p style="color:var(--muted)">Luogo: Aosta</p>
     </section>
-
   </main>
 
   <footer>luxuryshopvda</footer>
 
   <script>
     const products = [
+      // Scarpe originali
+      {id:1, name:'louis vuitton trainer', price:80, category:'scarpe', img:'https://images.stockx.com/360/Louis-Vuitton-LV-Trainer-White-Black-White/Images/Louis-Vuitton-LV-Trainer-White-Black-White/Lv2/img01.jpg'},
+      {id:2, name:'louis vuitton skater', price:80, category:'scarpe', img:'https://0fficial5hop.com/cdn/shop/files/OFFICIALSHOP_262bcf00-97d5-45e8-a7ba-32feccbda4cf.jpg'},
+      {id:3, name:'dior b22', price:80, category:'scarpe', img:'https://outletdelcalcio.eu/cdn/shop/files/WhatsAppImage2024-05-11at15.06.49.jpg'},
+      {id:4, name:'dior b30', price:80, category:'scarpe', img:'https://assets.christiandior.com/is/image/diorprod/3SN279AADH900_E02'},
+      {id:5, name:'nike airmax', price:65, category:'scarpe', img:'https://static.nike.com/a/images/t_web_pdp_535_v2/f_auto/ee2059ee-47dd-4c10-9067-238b0a17c739/NIKE+AIR+MAX+95+BIG+BUBBLE.png'},
+      {id:6, name:'nike jordan', price:75, category:'scarpe', img:'https://tommaseoclothing.com/cdn/shop/files/air-jordan-4-bred-reimagined-140409.jpg'},
+      {id:7, name:'alexander mcqueen', price:70, category:'scarpe', img:'https://sanshopluxury.com/cdn/shop/files/BK812Xs2G8WhdvuLProgetto_2520senza_2520titolo_2520-_25202023-07-25T214706.964.jpg'},
+      {id:8, name:'nike nocta hot step 2', price:80, category:'scarpe', img:'https://www.resellzonecesena.com/cdn/shop/files/nike-hot-step-2-drake-nocta-white-dz7293-100-resellzone.jpg'},
+      {id:9, name:'nike shox', price:70, category:'scarpe', img:'https://asset.snipes.com/images/f_auto,q_100/dpr_2.0/02257129_1/nike-shox-tl-nero-24252-1'},
+
+      // Accessori originali
+      {id:10, name:'cinture louis vuitton', price:25, category:'accessori', img:'https://it.louisvuitton.com/images/is/image/lv/1/PP_VP_L/louis-vuitton-cintura-lv-pyramide-40-mm--M0422Q_PM1_Closeup%20view.jpg'},
+      {id:11, name:'berretto cp company', price:25, category:'accessori', img:'https://www.mytheresa.com/media/1094/1238/100/93/P00853492.jpg'},
+      {id:12, name:'berretto moncler', price:25, category:'accessori', img:'https://cdn-images.farfetch-contents.com/23/96/54/01/23965401_55414894_1000.jpg'},
+      {id:13, name:'berretto louis vuitton', price:25, category:'accessori', img:'https://images.vestiairecollective.com/images/resized/w=1246,q=75,f=auto,/produit/cappelli-berretti-louis-vuitton-grigio-lana-38856057-1_3.jpg'},
+      {id:14, name:'portacarte goyard', price:20, category:'accessori', img:'https://cdn-images.farfetch-contents.com/22/84/93/98/22849398_53276173_1000.jpg'},
+      {id:15, name:'portafoglio louis vuitton', price:25, category:'accessori', img:'https://www.paolaaruvintageboutique.com/wp-content/uploads/2023/07/Portafoglio-LV.jpg'},
+
+      // Nuove giacche / smanicati
+      {id:100, name:'smanicato canada goose', price:55, category:'giacche', img:'https://images.unsplash.com/photo-1602810316075-fbbf02f022a7?auto=format&fit=crop&w=400&q=80'},
+      {id:101, name:'smanicato trapstar', price:65, category:'giacche', img:'https://images.unsplash.com/photo-1591088364301-3df21855d517?auto=format&fit=crop&w=400&q=80'},
+      {id:102, name:'giacca north face', price:60, category:'giacche', img:'https://images.unsplash.com/photo-1585730285725-233bc14e595b?auto=format&fit=crop&w=400&q=80'},
+      {id:103, name:'giacca ralph lauren', price:75, category:'giacche', img:'https://images.unsplash.com/photo-1582552964841-827ff6d4f1e5?auto=format&fit=crop&w=400&q=80'},
+      {id:104, name:'giacca trapstar', price:75, category:'giacche', img:'https://images.unsplash.com/photo-1618354691373-a1df8bd2d96d?auto=format&fit=crop&w=400&q=80'},
+
+      // Nuove AirPods
+      {id:200, name:'airpods', price:40, category:'accessori', img:'https://toppng.com/uploads/preview/airpods-png-transparent-with-clear-background-100589.png' /* da TopPNG */ }
+    ];
+
+    const $ = s => document.querySelector(s);
+    const $$ = s => Array.from(document.querySelectorAll(s));
+
+    function showPage(page){
+      $$('.page').forEach(p=> p.style.display='none');
+      $('#page-'+page).style.display='block';
+      renderListing(page);
+    }
+
+    $$("nav a").forEach(a=> a.onclick=(e)=>{
+      e.preventDefault();
+      $$("nav a").forEach(x=>x.classList.remove('active'));
+      a.classList.add('active');
+      showPage(a.dataset.page);
+    });
+
+    function makeCard(p){
+      const el = document.createElement('div');
+      el.className='card';
+      el.innerHTML=`
+        <a href="${p.img}" target="_blank" class="thumb"><img src="${p.img}" /></a>
+        <div class="product-name">${p.name}</div>
+        <div style="color:var(--muted);font-size:13px">Categoria: ${p.category}</div>
+        <div class="price">€${p.price}</div>`;
+      return el;
+    }
+
+    function renderListing(page){
+      const q = $('#search').value.toLowerCase();
+      const sort = $('#sort').value;
+
+      let list = products.filter(p =>
+        p.name.toLowerCase().includes(q) ||
+        p.category.includes(q)
+      );
+
+      if(sort==='price-asc') list.sort((a,b)=>a.price-b.price);
+      if(sort==='price-desc') list.sort((a,b)=>b.price-a.price);
+      if(sort==='name-asc') list.sort((a,b)=>a.name.localeCompare(b.name));
+
+      const grids = {
+        home: $('#listing'),
+        scarpe: $('#scarpe-grid'),
+        accessori: $('#accessori-grid'),
+        giacche: $('#giacche-grid')
+      };
+
+      Object.values(grids).forEach(g=> g.innerHTML='');
+
+      if(page==='home') list.forEach(p=> grids.home.appendChild(makeCard(p)));
+      list.filter(p=>p.category==='scarpe').forEach(p=>grids.scarpe.appendChild(makeCard(p)));
+      list.filter(p=>p.category==='accessori').forEach(p=>grids.accessori.appendChild(makeCard(p)));
+      list.filter(p=>p.category==='giacche').forEach(p=>grids.giacche.appendChild(makeCard(p)));
+    }
+
+    $('#search').oninput=()=>renderListing(getPage());
+    $('#sort').onchange=()=>renderListing(getPage());
+
+    function getPage(){
+      return document.querySelector("nav a.active").dataset.page;
+    }
+
+    // inizializza
+    showPage('home');
+  </script>
+
+</body>
+</html>    const products = [
 
       /* --- I TUOI PRODOTTI ORIGINALI (NON TOCCATI) --- */
       {id:1, name:'louis vuitton trainer', price:80, category:'scarpe', img:'https://images.stockx.com/360/Louis-Vuitton-LV-Trainer-White-Black-White/Images/Louis-Vuitton-LV-Trainer-White-Black-White/Lv2/img01.jpg'},
